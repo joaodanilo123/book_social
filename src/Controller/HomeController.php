@@ -1,27 +1,47 @@
 <?php
 
 require_once(MODEL_PATH . 'Categoria.php');
+require_once(INTERFACE_PATH . 'Controller.php');
 
-class HomeController
+class HomeController implements Controller
 {
 
-  public function carregar()
+  public function setAcao(string $acao)
+  {
+  }
+
+  public function setArgumento(string $argumento)
+  {
+  }
+
+  public function acionar()
+  {
+
+    try {
+
+      $busca = $this->carregarDadosModel();
+      if ($busca) {
+        $parametros = ['categorias' => $busca];
+        $this->renderizar($parametros);
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+  }
+
+  public function carregarDadosModel()
+  {
+    return Categoria::buscarLivrosPorCategoria(Conexao::getConexao());
+  }
+
+  public function renderizar($parametros)
   {
 
     $loader = new \Twig\Loader\FilesystemLoader(TEMPLATE_PATH);
     $twig = new \Twig\Environment($loader);
 
-    try {
+    $template = $twig->load('home.html');
 
-      $template = $twig->load('home.html');
-      $busca = Categoria::buscarLivrosPorCategoria(Conexao::getConexao());
-      $parametros = ['categorias' => $busca];
-      $conteudo = $template->render($parametros);
-
-      echo $conteudo;
-    
-    } catch (Exception $e) {
-      echo $e->getMessage();
-    }
+    echo $template->render($parametros);
   }
 }
