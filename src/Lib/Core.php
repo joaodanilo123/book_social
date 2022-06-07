@@ -40,9 +40,13 @@ class Core
 
     public function ativar()
     {
+        try {
 
-        $this->controller->setAcao($this->rota->getAcao());
-        $this->controller->setArgumento($this->rota->getArgumento());
+            $this->controller->setAcao($this->rota->getAcao());
+            $this->controller->setArgumento($this->rota->getArgumento());
+        } catch (\Throwable $th) {
+            $this->controller = new ErroController;
+        }
 
         ob_start();
         $this->controller->acionar();
@@ -52,7 +56,6 @@ class Core
         $pagina = file_get_contents($this->layout_padrao);
 
         $pagina = str_replace('{{area-dinamica}}', $conteudo, $pagina);
-
         echo $pagina;
     }
 }

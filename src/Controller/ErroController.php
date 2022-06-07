@@ -6,7 +6,7 @@ class ErroController implements Controller
 {
 
   public function acionar(){
-    echo "Erro";
+    echo "<h1>Essa é a página de erro</h1>";
   }
 
   public function setArgumento(string $argumento){}

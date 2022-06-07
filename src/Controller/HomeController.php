@@ -2,6 +2,7 @@
 
 require_once(MODEL_PATH . 'Categoria.php');
 require_once(INTERFACE_PATH . 'Controller.php');
+require_once(LIB_PATH . 'Renderizador.php');
 
 class HomeController implements Controller
 {
@@ -37,11 +38,7 @@ class HomeController implements Controller
   public function renderizar($parametros)
   {
 
-    $loader = new \Twig\Loader\FilesystemLoader(TEMPLATE_PATH);
-    $twig = new \Twig\Environment($loader);
-
-    $template = $twig->load('home.html');
-
-    echo $template->render($parametros);
+    Renderizador::carregarPaginaComParametros('home.html', $parametros);
+    
   }
 }

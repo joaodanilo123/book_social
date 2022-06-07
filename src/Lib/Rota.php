@@ -27,6 +27,8 @@ class Rota
             case 2:
                 $this->setController($caminho[0]);
                 $this->setAcao($caminho[1]);
+                break;
+                
             case 3:
                 $this->setController($caminho[0]);
                 $this->setAcao($caminho[1]);

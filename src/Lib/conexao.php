@@ -16,5 +16,23 @@ abstract class Conexao {
         return self::$conexao;
     }
 
+    public static function selectQuery($sql, $params = array()): PDOStatement {
+        
+        $conexao = self::getConexao();
+        
+        $sql = $conexao->prepare($sql);
+        $sql->execute($params);
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+        return $sql;
+    }
+
+    public static function insertQuery($sql, $params = array()): bool {
+        $conexao = self::getConexao();
+        
+        $sql = $conexao->prepare($sql);
+        return ($sql->execute($params));
+        
+    }
+
 }
 
