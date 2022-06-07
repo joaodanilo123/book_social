@@ -18,5 +18,3 @@ require_once("./src/Lib/Core.php");
 
 $core = new Core(DEFAULT_LAYOUT_PATH);
 $core->ativar();
-var_dump($_SERVER['SERVER_NAME']);
-

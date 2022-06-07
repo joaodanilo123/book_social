@@ -8,3 +8,55 @@ h1{
 .cor1{
     background-color: #ff3d03;
 }
+
+.botaosearch:hover{
+    background: #1e8051;
+}
+
+.botaologin:hover{
+    background: #1e8051;
+}
+
+button{
+    background: transparent;
+    padding: 5px 20px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    border:1px solid white;
+    margin: 5px;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+body{
+    background-color: black;
+}
+h1{
+    color: #ff0303;
+}
+
+.cor1{
+    background-color: #ff3d03;
+}
+
+.livrosorte {
+    margin: auto;
+}
+
+.imagem{
+    margin-top: 20px;
+    display: table-cell;
+    float: left;
+}
+
+.texto{
+    display: table-cell;
+    float: left;
+    width: 650px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: aliceblue;
+}
+
+
+

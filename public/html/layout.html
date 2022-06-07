@@ -10,18 +10,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/CSS/Estilo.css">
-    <title>SORVIL</title>
+    <link rel="stylesheet" href="http://localhost/booksocial/public/CSS/Estilo.css">
+    <title>Book Social</title>
 </head>
 
 <body>
     <div class="nome text-center">
-        <h1>SORVIL</h1>
+        <h1>Book Social</h1>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light cor1">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">SORVIL</a>
+            <a class="navbar-brand" href="#">Book Social</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,33 +29,16 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Livros</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="true">
-                            Opçoes
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="#emprendedorismo">Emprendedorismo</a></li>
-                            <li><a class="dropdown-item" href="#manga">Mangas</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#programa">Programação</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Plano</a>
+                        <a class="nav-link active" aria-current="page" href="http://localhost/booksocial/">Home</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <ul class="d-flex navbar-nav my-2 my-lg-0 navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a href="http://localhost/booksocial/usuario/login">
+                            <button class="btn btn-outline-success">Login</button>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

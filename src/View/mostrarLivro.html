@@ -1,0 +1,22 @@
+
+  <section class="livrosorte">
+    <div class="imagem">
+      <img src='{{IMG_PATH ~ "livro#{livro.id}.jpg" }}' width="300px">
+    </div>
+
+    <div class="texto">
+      <h1>{{livro.titulo}}</h1>
+      <p>{{livro.sinopse}}</p>
+      
+      <h3>Categorias</h3>
+      {% for categoria in livro.categorias %}
+        {{categoria.nome}}
+      {% endfor %}
+      <h3>Autores</h3>
+      {% for autor in livro.autores %}
+        {{autor.nome}}
+      {% endfor %}
+    </div>
+  </section>
+  </div>
+</body>
