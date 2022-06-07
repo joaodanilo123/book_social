@@ -42,7 +42,7 @@ class Categoria
                 $posicaoCategoria = count($categorias) - 1;
             }
 
-            $livro = new Livro($row['id'], $row['titulo'], $row['ano'], $row['editora']);
+            $livro = new Livro($row['id'], $row['titulo'], $row['ano'], $row['editora'], $row['sinopse']);
 
             array_push($categorias[$posicaoCategoria]->livros, $livro);
         }
