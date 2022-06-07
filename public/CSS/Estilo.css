@@ -9,37 +9,8 @@ h1{
     background-color: #ff3d03;
 }
 
-.botaosearch:hover{
-    background: #1e8051;
-}
-
-.botaologin:hover{
-    background: #1e8051;
-}
-
-button{
-    background: transparent;
-    padding: 5px 20px;
-    border-radius: 3px;
-    color: rgb(255, 255, 255);
-    border:1px solid white;
-    margin: 5px;
-    cursor: pointer;
-    transition: ease-in-out .25s;
-}
-
-body{
-    background-color: black;
-}
-h1{
-    color: #ff0303;
-}
-
-.cor1{
-    background-color: #ff3d03;
-}
-
 .livrosorte {
+    width: 1300px;
     margin: auto;
 }
 
@@ -58,5 +29,26 @@ h1{
     color: aliceblue;
 }
 
+.tempo img { 
+    background-color: white;
+    max-width: 30px; 
+}
 
+button{
+    background: transparent;
+    padding: 5px 20px;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    border:1px solid white;
+    margin: 5px;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
 
+.botaosearch:hover{
+    background: #1e8051;
+}
+
+.botaologin:hover{
+    background: #1e8051;
+}

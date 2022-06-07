@@ -81,22 +81,6 @@ button:hover{
     background: #1e8051;
 }
 
-.btn{
-    background: transparent;
-    padding: 15px 50px;
-    border-radius: 20px;
-    color: white;
-    text-transform: uppercase;
-    border:2px solid white;
-    margin: 20px;
-    cursor: pointer;
-    transition: ease-in-out .25s;
-}
-
-.btn:hover{
-    background: #1e8051;
-}
-
 div a{
     text-decoration: none;
     color: white;
