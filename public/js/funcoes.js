@@ -1,4 +1,4 @@
-function Avaliar(estrela) {
+function Avaliar(nota) {
 
     const img = "http://localhost/booksocial/img";
 
@@ -8,14 +8,14 @@ function Avaliar(estrela) {
         estrelas.push(document.getElementById(`s${i}`))
     }
 
-    for (let i = 0; i < 5; i++) {
-        if(estrela >= i + 1) {
-            estrelas[i].src = `${img}/star1.png`;
+    estrelas.forEach((elemento, i) => {
+        if(nota >= i + 1) {
+            elemento.src = `${img}/star1.png`;
         } else {
-            estrelas[i].src = `${img}/star0.png`;
+            elemento.src = `${img}/star0.png`;
         }
-    }
+    })
     
-    document.getElementById('rating').innerHTML = estrela;
+    document.getElementById('rating').innerHTML = nota;
     
 }
