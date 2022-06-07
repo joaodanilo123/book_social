@@ -2,6 +2,13 @@
   <section class="livrosorte">
     <div class="imagem">
       <img src='{{IMG_PATH ~ "livro#{livro.id}.jpg" }}' width="300px">
+      <div class="avaliacao">
+        {% for i in 1..5 %}
+          <a href="javascript:void(0)" onclick="Avaliar({{ i }})">
+            <img src="{{IMG_PATH ~ "star0.png" }}" id="s{{i}}">
+          </a>
+        {% endfor %}
+        <p id="rating">0</p>
     </div>
 
     <div class="texto">
