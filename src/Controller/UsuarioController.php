@@ -52,8 +52,10 @@ class UsuarioController implements Controller
             $usuario = new Usuario($nome, $senha, $email);
             Usuario::salvarNoBanco($usuario);
 
+            header(sprintf("Location: %susuario/login", ROOT_PATH));
+
         } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            # code...
+            Renderizador::carregarPaginaComParametros('cadastro.html', []);
         }
     }
 }

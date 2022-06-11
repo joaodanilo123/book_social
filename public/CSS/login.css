@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-body{
-    background-image: url(../img/12.jpg);
+.bg {
+    background-image: url(http://localhost/booksocial/public/img/12.jpg);
     display: flex;
     justify-content: center;
     align-items: center;

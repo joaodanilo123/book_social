@@ -6,8 +6,9 @@ abstract class Renderizador
     private static $loader = null;
     private static $twig = null;
     private static $parametros_padrao = [
-        'IMG_PATH' => ROOT_PATH . 'img/',
-        'CSS_PATH' => ROOT_PATH . 'css/'
+        'IMG_PATH' => ROOT_PATH . 'public/img/',
+        'CSS_PATH' => ROOT_PATH . 'public/css/',
+        'ROOT_PATH' => ROOT_PATH
     ];
 
     private static function configurar()

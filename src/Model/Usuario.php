@@ -8,7 +8,7 @@ require_once(LIB_PATH . 'conexao.php');
 class Usuario
 {
 
-    private int $id;
+    private ?int $id;
     private string $nome;
     private string $senha;
     private string $email;
@@ -26,7 +26,7 @@ class Usuario
     }
 
     public static function salvarNoBanco(Usuario $usuario) {
-        $sql = "INSET INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
+        $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
         $parametros = [
             'nome' => $usuario->nome, 
             'email' => $usuario->email, 
