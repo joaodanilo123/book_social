@@ -3,25 +3,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="{{CSS_PATH}}login.css">
 
 <div class="container">
     <h2>Login</h2>
-    <form action="index.html" method="post">
+    <form action="{{ROOT_PATH}}usuario/login" method="post">
         <div class="input-field">
-            <input type="text" id="nome" placeholder="user">
-            <label for="nome">Usuário</label>
+            <input type="text" id="nome" placeholder="user" name="email">
+            <label for="nome">Email</label>
         </div>
 
         <div class="input-field">
-            <input type="password" id="senha" placeholder="Senha">
+            <input type="password" id="senha" placeholder="Senha" name="senha">
             <label for="senha">Senha</label>
         </div>
 
         <div class="center">
-            <button>Entrar</button>
+            <button type="submit">Entrar</button>
         </div>
     </form>
+    {% if erro is defined %}
+        <div>
+            <span>ERRO, email ou senha inválidos</span>
+        </div>
+    {% endif %}
     <div class="links">
         <a href="">
             <p>Esqueceu sua senha?</p>

@@ -4,12 +4,13 @@ require_once(MODEL_PATH . 'Livro.php');
 require_once(MODEL_PATH . 'Usuario.php');
 require_once(INTERFACE_PATH . 'Controller.php');
 require_once(LIB_PATH . 'Renderizador.php');
+require_once(LIB_PATH . 'Sessao.php');
 
 class UsuarioController implements Controller
 {
 
     private $acao;
-    private $acoesPermitidas = ['cadastrar', 'login'];
+    private $acoesPermitidas = ['cadastrar', 'login', 'mostrar'];
     private $argumento;
 
     public function setAcao(string $acao)
@@ -35,7 +36,31 @@ class UsuarioController implements Controller
     }
 
     private function login(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+            $senha = $_POST['senha'];
+            $email = $_POST['email'];
+
+            if(empty($senha) || empty($email)){
+                return false;
+            }
+
+            if(Usuario::autenticar($email, $senha)){
+                var_dump(Sessao::getUsuario());
+                header(sprintf("Location: %susuario/mostrar", ROOT_PATH));
+            } else {
+                header(sprintf("Location: %susuario/login?error=invalida", ROOT_PATH));
+            };
+
+            
+
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            
+            $parametros = [];
+            if(array_key_exists('erro', $_GET)) $parametros['erro'] = $_GET['erro'];
+
+            Renderizador::carregarPaginaComParametros('login.html', $parametros);
+        }
     }
 
     private function cadastrar(){
@@ -49,7 +74,8 @@ class UsuarioController implements Controller
                 return false;
             }
 
-            $usuario = new Usuario($nome, $senha, $email);
+            $usuario = new Usuario($nome, $email);
+            $usuario = $usuario->comSenha($senha);
             Usuario::salvarNoBanco($usuario);
 
             header(sprintf("Location: %susuario/login", ROOT_PATH));
