@@ -1,6 +1,6 @@
 <?php
 
-require_once(INTERFACE_PATH . 'Controller.php');
+
 
 class ErroController implements Controller
 {

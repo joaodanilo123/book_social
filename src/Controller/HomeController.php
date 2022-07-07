@@ -1,8 +1,6 @@
 <?php
 
-require_once(MODEL_PATH . 'Categoria.php');
-require_once(INTERFACE_PATH . 'Controller.php');
-require_once(LIB_PATH . 'Renderizador.php');
+
 
 class HomeController implements Controller
 {

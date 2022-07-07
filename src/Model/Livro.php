@@ -1,10 +1,5 @@
 <?php
 
-require_once(MODEL_PATH . 'Categoria.php');
-require_once(MODEL_PATH . 'Autor.php');
-require_once(LIB_PATH . 'conexao.php');
-
-
 class Livro
 {
 

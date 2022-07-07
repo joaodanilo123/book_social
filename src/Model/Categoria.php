@@ -1,6 +1,6 @@
 <?php
 
-require_once(MODEL_PATH . 'Livro.php');
+
 
 class Categoria
 {

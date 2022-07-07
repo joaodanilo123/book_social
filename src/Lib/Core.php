@@ -1,8 +1,6 @@
 <?php
 
-require_once(LIB_PATH . 'Rota.php');
-require_once(INTERFACE_PATH . 'Controller.php');
-require_once(CONTROLLER_PATH . 'ErroController.php');
+
 
 class Core
 {

@@ -1,10 +1,8 @@
 <?php
 
-require_once(MODEL_PATH . 'Livro.php');
-require_once(MODEL_PATH . 'Usuario.php');
-require_once(INTERFACE_PATH . 'Controller.php');
-require_once(LIB_PATH . 'Renderizador.php');
-require_once(LIB_PATH . 'Sessao.php');
+use Twig\Node\Expression\VariadicExpression;
+
+
 
 class UsuarioController implements Controller
 {
@@ -35,6 +33,15 @@ class UsuarioController implements Controller
         $this->$method();
     }
 
+    private function mostrar(){
+        if ($this->argumento){
+            
+            $usuario = Usuario::getById($this->argumento);
+            Renderizador::carregarPaginaComParametros('perfil.html', ['usuario' => $usuario]);
+        }
+        
+    }
+
     private function login(){
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -46,8 +53,9 @@ class UsuarioController implements Controller
             }
 
             if(Usuario::autenticar($email, $senha)){
-                var_dump(Sessao::getUsuario());
-                header(sprintf("Location: %susuario/mostrar", ROOT_PATH));
+                $id = Sessao::getUsuario()->getId();
+                
+                header(sprintf("Location: %susuario/mostrar/%d", ROOT_PATH, $id));
             } else {
                 header(sprintf("Location: %susuario/login?error=invalida", ROOT_PATH));
             };

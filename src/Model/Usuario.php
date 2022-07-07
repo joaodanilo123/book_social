@@ -1,14 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Internal\ReturnTypeContract;
-use LDAP\Result;
-
-require_once(MODEL_PATH . 'Categoria.php');
-require_once(MODEL_PATH . 'Autor.php');
-require_once(LIB_PATH . 'conexao.php');
-require_once(LIB_PATH . 'Sessao.php');
-
-
 class Usuario
 {
 
@@ -37,6 +28,18 @@ class Usuario
     }
 
     public static function getById($id) {
+        $sql = "SELECT id, nome, email FROM usuario WHERE id = :id";
+        $parametros = [
+            'id' => $id
+        ];
+        
+        $resultado = Conexao::selectQuery($sql, $parametros);
+        if($resultado->rowCount() > 0){
+
+            $dadosUsuario = $resultado->fetch();
+            return new Usuario($dadosUsuario['nome'], $dadosUsuario['email']);
+
+        } else return false;
 
     }
 
@@ -74,5 +77,20 @@ class Usuario
 
         } else return false;
 
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
     }
 }

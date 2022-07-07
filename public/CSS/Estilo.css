@@ -12,17 +12,16 @@ h1{
 .livrosorte {
     width: 1300px;
     margin: auto;
+    display: flex;
 }
 
 .imagem{
     margin-top: 20px;
-    display: table-cell;
-    float: left;
+    padding: 10pt;
 }
 
 .texto{
-    display: table-cell;
-    float: left;
+    
     width: 650px;
     margin-top: 20px;
     margin-left: 20px;
@@ -45,10 +44,47 @@ button{
     transition: ease-in-out .25s;
 }
 
+.avaliacao form button{
+    background: transparent;
+    padding: 5px 20px;
+    border-radius: 3px;
+    color: black;
+    border: 1px solid gold;
+    margin: 5px;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+.avaliacao form button:hover{
+    background: #d40909;
+}
+
 .botaosearch:hover{
-    background: #1e8051;
+    background: #d40909;
 }
 
 .botaologin:hover{
-    background: #1e8051;
+    background: #d40909;
+}
+
+.lista-avaliacoes {
+    margin-top: 20pt;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20pt;
+}
+
+.avaliacao {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10pt;
+    margin: 10pt;
+    display: flex;
+    flex-direction: column;
+}
+textarea {
+    display: block;
+    width: 100%;
 }

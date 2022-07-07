@@ -18,6 +18,6 @@ function Avaliar(element) {
         }
     })
 
-    document.getElementById('rating').innerHTML = nota;
+    document.getElementById('rating').value = nota;
 
 }

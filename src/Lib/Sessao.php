@@ -7,20 +7,22 @@ abstract class Sessao
 
     public static function criarSessao(Usuario $usuario)
     {
-
-        session_start();
-        self::limparSessao();
-
-        $_SESSION['usuario'] = $usuario;
+        $_SESSION['usuario'] = $usuario;  
     }
 
-    public static function getUsuario(): Usuario
+    public static function getUsuario()
     {
-        if (!is_null($_SESSION['usuario'])) return $_SESSION['usuario'];
+        if(array_key_exists('usuario', $_SESSION)) return $_SESSION['usuario'];
+        return null;
     }
 
     public static function limparSessao()
     {
         session_destroy();
+    }
+
+    public static function isLogado(): bool
+    {
+        return !is_null(self::getUsuario());
     }
 }

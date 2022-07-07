@@ -1,13 +1,7 @@
-<section class="livrosorte">
-  <div class="imagem">
-    <img src='{{IMG_PATH ~ "livro#{livro.id}.jpg" }}' width="300px">
-    <div class="avaliacao">
-      {% for i in 1..5 %}
-      <a href="javascript:void(0)" onclick="Avaliar(this)" id="{{i}}">
-        <img src="{{IMG_PATH ~ 'star0.png' }}" id="s{{i}}">
-      </a>
-      {% endfor %}
-      <p id="rating">0</p>
+<section>
+  <main class="livrosorte">
+    <div class="imagem">
+      <img src='{{IMG_PATH ~ "livro#{livro.id}.jpg" }}' width="300px">
     </div>
 
     <div class="texto">
@@ -23,5 +17,47 @@
       {{autor.nome}}
       {% endfor %}
     </div>
+  </main>
+
+  <section class="lista-avaliacoes">
+    <h4>Avaliações</h4>
+    {% if logado == true %}
+    <div class="avaliacao">
+      <form action="{{ROOT_PATH}}livro/avaliar/{{livro.id}}" method="post">
+        {% for i in 1..5 %}
+        <a href="javascript:void(0)" onclick="Avaliar(this)" id="{{i}}">
+          <img src="{{IMG_PATH ~ 'star0.png' }}" id="s{{i}}">
+        </a>
+        {% endfor %}
+        <input type="hidden" name="nota" id="rating" value="0" />
+        <fieldset>
+          <label for="texto">Qual sua opinião sobre o livro?</label>
+          <textarea name="texto" id="texto" required></textarea>
+        </fieldset>
+        <button type="submit">Salvar</button>
+      </form>
+
+    </div>
+    <hr>
+    {% endif %}
+
+    {% for ava in avaliacoes %}
+    <div class="avaliacao">
+      <p>{{ava.nota}}</p>
+      <div>
+        {% for i in 1..ava.nota %}
+        <img src="{{IMG_PATH ~ 'star1.png' }}">
+        {% endfor %}
+        {% if 5 - ava.nota > 0 %}
+          {% for i in 1..(5-ava.nota) %}
+            <img src="{{IMG_PATH ~ 'star0.png' }}">
+          {% endfor %}
+        {% endif %}
+      </div>
+      <p>{{ ava.texto }}</p>
+
+    </div>
+    {% endfor %}
+  </section>
+
 </section>
-</div>

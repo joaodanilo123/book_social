@@ -1,14 +1,10 @@
 <?php
 
-require_once(MODEL_PATH . 'Livro.php');
-require_once(INTERFACE_PATH . 'Controller.php');
-require_once(LIB_PATH . 'Renderizador.php');
-
 class LivroController implements Controller
 {
 
     private $acao;
-    private $acoesPermitidas = ['cadastrar', 'mostrar'];
+    private $acoesPermitidas = ['cadastrar', 'mostrar', 'avaliar'];
     private $argumento;
 
     public function setAcao(string $acao)
@@ -33,10 +29,27 @@ class LivroController implements Controller
         $this->$method();
     }
 
+    private function avaliar()
+    {
+
+        $livroId = $this->argumento;
+        var_dump(Sessao::getUsuario());
+        $usuarioId = Sessao::getUsuario()->getId();
+        $nota = $_POST['nota'];
+        $texto = $_POST['texto'];
+
+        $avaliacao = new Avaliacao($nota, $texto);
+
+        Avaliacao::salvarNoBanco($avaliacao, $usuarioId, $livroId);
+        header(sprintf("Location: %slivro/mostrar/%d", ROOT_PATH, $livroId));
+
+    }
+
     private function mostrar()
     {
         $livro = Livro::getLivroById($this->argumento);
-        $parametros = ['livro' => $livro];
+        $avaliacoes = Avaliacao::listarPorLivro($livro->getId());
+        $parametros = ['livro' => $livro, 'logado' => Sessao::isLogado(), 'avaliacoes' => $avaliacoes];
         Renderizador::carregarPaginaComParametros('mostrarLivro.html', $parametros);
     }
 
